@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { Statistics } from 'count/Statistics'
+import { Section } from "count/Section";
+import { FeedbackOptions } from "count/FeeddbackOptions";
+
 
 
 export class Feedback extends Component{
@@ -25,53 +29,49 @@ export class Feedback extends Component{
       bad: state.bad + props.step,
     }));
   }
-  countTotalFeedback() {
-    const { bad, neutral, good } = this.state;
-    return bad + neutral + good;
-  }
-  countPositiveFeedbackPercentage() {
-    const { bad, neutral, good } = this.state;
-    if (good !== 0 ) {
-      return good/(bad + neutral + good)*100;
-    } else {
-      return 0;
-    }
+  // countTotalFeedback() {
+  //   const { bad, neutral, good } = this.state;
+  //   return bad + neutral + good;
+  // }
+  // PositivePercentage() {
+  //   const { bad, neutral, good } = this.state;
+  //   if (good !== 0 ) {
+  //     return good/(bad + neutral + good)*100;
+  //   } else {
+  //     return 0;
+  //   }
     
-  }
+  // }
 
 
   render() {
     return (
       <div>
-        <h2>Please leave feedback</h2>
-        <div>
-          <button type="button" onClick={this.responseGood}>Good</button>
-          <button type="button" onClick={this.responseNeutral}>Neutral</button>
-          <button type="button" onClick={this.responseBad}>Bad</button>
-        </div>
-        <h2>Statistics</h2>
-        <ul className="stats">
-          <li>
-            <span className="label">Good:</span>
-            <span className="quantity">{this.state.good}</span>
-          </li>
-          <li>
-            <span className="label">Neutral:</span>
-            <span className="quantity">{this.state.neutral}</span>
-          </li>
-          <li>
-            <span className="label">Bad:</span>
-            <span className="quantity">{this.state.bad}</span>
-          </li>
-          <li>
-            <span className="label">Total:</span>
-            <span className="quantity">{this.countTotalFeedback()}</span>
-          </li>
-           <li>
-            <span className="label">Positive feedback:</span>
-            <span className="quantity">{this.countPositiveFeedbackPercentage()}%</span>
-          </li>
-        </ul>
+        <Section 
+          nameSection = 'Please leave feedback'
+        >
+          <FeedbackOptions
+            response={this.responseGood}
+            nameButton="Good" />
+          <FeedbackOptions
+            response={this.responseNeutral}
+            nameButton="Neutral" />
+          <FeedbackOptions
+            response={this.responseBad}
+          nameButton="Bad"/>
+        </Section>
+
+        <Section 
+          nameSection = 'Statistics'
+        >
+          <Statistics
+            stateGood = {this.state.good}
+            stateNeutral = {this.state.neutral}
+            stateBad = {this.state.bad}
+            // totalFeedback = {this.countTotalFeedback()}
+            // positivePercent = {this.PositivePercentage()}
+        />
+        </Section>
       </div>
     );
   }
