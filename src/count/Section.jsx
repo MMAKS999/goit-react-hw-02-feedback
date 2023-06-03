@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 export const Section = ({nameSection, children}) => (
   <div>
@@ -5,3 +6,12 @@ export const Section = ({nameSection, children}) => (
     {children}
   </div>
 )
+
+
+Section.propTypes = {
+  nameSection: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]),
+}

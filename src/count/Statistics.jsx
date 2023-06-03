@@ -1,4 +1,6 @@
- import { Notification } from "./Notification";
+import { Notification } from "./Notification";
+import PropTypes from 'prop-types';
+
 
 // Компонент відображення статистики
 export const Statistics = ({ stateGood, stateNeutral, stateBad }) => {
@@ -45,4 +47,10 @@ export const Statistics = ({ stateGood, stateNeutral, stateBad }) => {
       </ul>
     )
   }
+}
+
+Statistics.propTypes = {
+  stateGood: PropTypes.number.isRequired,
+  stateNeutral: PropTypes.number.isRequired,
+  stateBad: PropTypes.number.isRequired,
 }
