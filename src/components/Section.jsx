@@ -1,17 +1,13 @@
 import PropTypes from 'prop-types';
 
-export const Section = ({nameSection, children}) => (
+export const Section = ({ nameSection, children }) => (
   <div>
     <h2>{nameSection}</h2>
     {children}
   </div>
-)
-
+);
 
 Section.propTypes = {
   nameSection: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
-}
+  children: PropTypes.node,
+};
