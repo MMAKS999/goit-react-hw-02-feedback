@@ -1,4 +1,3 @@
-import { Notification } from "./Notification";
 import PropTypes from 'prop-types';
 
 
@@ -15,13 +14,7 @@ export const Statistics = ({ stateGood, stateNeutral, stateBad }) => {
     } else {
       return 0;
     }
-    
   }
-  if (stateGood === 0 && stateNeutral === 0 && stateBad === 0) {
-    return (
-      <Notification/>
-    )
-  } else {
     return (
       <ul className="stats">
         <li>
@@ -46,7 +39,6 @@ export const Statistics = ({ stateGood, stateNeutral, stateBad }) => {
         </li>
       </ul>
     )
-  }
 }
 
 Statistics.propTypes = {

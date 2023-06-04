@@ -29,20 +29,6 @@ export class Feedback extends Component{
       bad: state.bad + props.step,
     }));
   }
-  // countTotalFeedback() {
-  //   const { bad, neutral, good } = this.state;
-  //   return bad + neutral + good;
-  // }
-  // PositivePercentage() {
-  //   const { bad, neutral, good } = this.state;
-  //   if (good !== 0 ) {
-  //     return good/(bad + neutral + good)*100;
-  //   } else {
-  //     return 0;
-  //   }
-    
-  // }
-
 
   render() {
     return (
